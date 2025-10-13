@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Electrical Component Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='animations.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-microchip"></i>
+                    <h1>Electrical Component Classifier</h1>
+                </div>
+                <div class="header-info">
+                    <a href="/" class="btn btn-primary">
+                        <i class="fas fa-home"></i>
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Documentation Section -->
+                <section class="documentation-section">
+                    <div class="doc-card">
+                        <div class="doc-header">
+                            <i class="fas fa-book doc-icon"></i>
+                            <h2>Project Documentation</h2>
+                        </div>
+
+                        <!-- Project Overview -->
+                        <div class="doc-content">
+                            <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+                            <p>
+                                The <strong>Electrical Component Classifier</strong> is a state-of-the-art web application 
+                                that leverages deep learning and computer vision to automatically identify and classify 
+                                electrical components from images. This professional-grade system combines the power of 
+                                artificial intelligence with an intuitive user interface to provide accurate, real-time 
+                                component classification.
+                            </p>
+                        </div>
+
+                        <!-- Technology Stack -->
+                        <div class="doc-content">
+                            <h3><i class="fas fa-code"></i> Technology Stack</h3>
+                            <div class="tech-grid">
+                                <div class="tech-item">
+                                    <i class="fas fa-brain"></i>
+                                    <h4>Deep Learning</h4>
+                                    <p>PyTorch 2.1.0 with ResNet50 architecture for high-accuracy image classification</p>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-server"></i>
+                                    <h4>Backend</h4>
+                                    <p>Flask 2.3.3 framework providing robust REST API endpoints and server logic</p>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-palette"></i>
+                                    <h4>Frontend</h4>
+                                    <p>Modern HTML5, CSS3, and JavaScript with responsive design and smooth animations</p>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-image"></i>
+                                    <h4>Computer Vision</h4>
+                                    <p>Advanced image preprocessing with torchvision and PIL for optimal model performance</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Features -->
+                        <div class="doc-content">
+                            <h3><i class="fas fa-star"></i> Key Features</h3>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check-circle"></i> <strong>18 Component Types:</strong> Accurately classifies capacitors, resistors, diodes, ICs, LEDs, transformers, and more</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>High Accuracy:</strong> 73%+ classification accuracy on test datasets</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Real-time Processing:</strong> Fast inference with results in under 2 seconds</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Drag & Drop Upload:</strong> Intuitive file upload with visual feedback</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Top 5 Predictions:</strong> View confidence scores for multiple predictions</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Mobile Responsive:</strong> Works seamlessly on desktop, tablet, and mobile devices</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Professional UI:</strong> Modern design with smooth animations and transitions</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Export Results:</strong> Download classification results as JSON format</li>
+                            </ul>
+                        </div>
+
+                        <!-- Model Architecture -->
+                        <div class="doc-content">
+                            <h3><i class="fas fa-project-diagram"></i> Model Architecture</h3>
+                            <p>
+                                The classifier uses a <strong>ResNet50</strong> convolutional neural network as the backbone, 
+                                pre-trained on ImageNet and fine-tuned on the ElectroCom61 dataset. The architecture includes:
+                            </p>
+                            <ul class="architecture-list">
+                                <li><strong>Backbone:</strong> ResNet50 (frozen layers for transfer learning)</li>
+                                <li><strong>Custom Classifier:</strong> 3-layer fully connected network (2048 → 512 → 18 classes)</li>
+                                <li><strong>Input Size:</strong> 128×256 pixels with ImageNet normalization</li>
+                                <li><strong>Activation:</strong> ReLU activation with Dropout (0.5) for regularization</li>
+                                <li><strong>Output:</strong> Softmax probabilities for 18 electrical component classes</li>
+                            </ul>
+                        </div>
+
+                        <!-- Supported Components -->
+                        <div class="doc-content">
+                            <h3><i class="fas fa-microchip"></i> Supported Components</h3>
+                            <div class="components-grid">
+                                <div class="component-tag">Capacitor</div>
+                                <div class="component-tag">Diode</div>
+                                <div class="component-tag">IC</div>
+                                <div class="component-tag">Inductor</div>
+                                <div class="component-tag">Integrated-micro-circuit</div>
+                                <div class="component-tag">LED</div>
+                                <div class="component-tag">Resistor</div>
+                                <div class="component-tag">Transformer</div>
+                                <div class="component-tag">Cartridge-fuse</div>
+                                <div class="component-tag">Electric-relay</div>
+                                <div class="component-tag">Heat-sink</div>
+                                <div class="component-tag">Jumper-cable</div>
+                                <div class="component-tag">Memory-chip</div>
+                                <div class="component-tag">Omni-directional-antenna</div>
+                                <div class="component-tag">Potentiometer</div>
+                                <div class="component-tag">Solenoid</div>
+                                <div class="component-tag">Stabilizer</div>
+                                <div class="component-tag">Transistor</div>
+                            </div>
+                        </div>
+
+                        <!-- How to Use -->
+                        <div class="doc-content">
+                            <h3><i class="fas fa-question-circle"></i> How to Use</h3>
+                            <ol class="usage-steps">
+                                <li><strong>Upload Image:</strong> Drag and drop or click to select an electrical component image</li>
+                                <li><strong>Preview:</strong> Review the uploaded image before classification</li>
+                                <li><strong>Classify:</strong> Click the "Classify Component" button to run AI prediction</li>
+                                <li><strong>View Results:</strong> See the predicted component type with confidence score</li>
+                                <li><strong>Download:</strong> Optionally export the results as JSON for further analysis</li>
+                            </ol>
+                        </div>
+
+                        <!-- Designer Credit -->
+                        <div class="doc-content designer-section">
+                            <h3><i class="fas fa-user-tie"></i> About the Designer</h3>
+                            <div class="designer-card">
+                                <div class="designer-info">
+                                    <h4>Eng. Aymen Al-Tinah</h4>
+                                    <p class="designer-title">Mechatronics Engineer & AI Specialist</p>
+                                    <p class="designer-description">
+                                        This project was designed and developed by <strong>Eng. Aymen Al-Tinah</strong>, 
+                                        a passionate Mechatronics Engineer with expertise in artificial intelligence and 
+                                        deep learning. With a strong foundation in both hardware and software systems, 
+                                        this project represents the perfect fusion of engineering excellence and 
+                                        cutting-edge AI technology.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Back Button -->
+                        <div class="doc-actions">
+                            <a href="/" class="btn btn-primary btn-large">
+                                <i class="fas fa-arrow-left"></i>
+                                Return to Home
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Electrical Component Classifier</p>
+                    <p>Powered by Deep Learning & Computer Vision</p>
+                    <p class="credit">Designed & Developed by <strong>Eng. Aymen Al-Tinah</strong></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

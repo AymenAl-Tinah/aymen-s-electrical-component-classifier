@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Component Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='animations.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-microchip"></i>
+                    <h1>Electrical Component Classifier</h1>
+                </div>
+                <div class="header-info">
+                    <span class="model-info">
+                        <i class="fas fa-brain"></i>
+                        {{ num_classes }} Classes
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Upload Section -->
+                <section class="upload-section">
+                    <div class="upload-card">
+                        <div class="upload-header">
+                            <h2>Upload Component Image</h2>
+                            <p>Upload an image of an electrical component for AI-powered classification</p>
+                        </div>
+                        
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-content">
+                                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                <h3>Drag & Drop or Click to Upload</h3>
+                                <p>Supports PNG, JPG, JPEG, GIF, BMP, TIFF, WEBP</p>
+                                <p class="file-size">Maximum file size: 16MB</p>
+                            </div>
+                            <input type="file" id="fileInput" accept="image/*" hidden>
+                        </div>
+                        
+                        <div class="upload-actions">
+                            <button class="btn btn-primary" id="selectFileBtn">
+                                <i class="fas fa-folder-open"></i>
+                                Select File
+                            </button>
+                            <button class="btn btn-secondary" id="predictBtn" disabled>
+                                <i class="fas fa-magic"></i>
+                                <span class="btn-text">Classify Component</span>
+                                <div class="spinner" id="predictSpinner"></div>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Preview Section -->
+                <section class="preview-section" id="previewSection" style="display: none;">
+                    <div class="preview-card">
+                        <div class="preview-header">
+                            <h3>Image Preview</h3>
+                            <button class="btn btn-ghost" id="removeImageBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="preview-content">
+                            <img id="previewImage" alt="Preview">
+                            <div class="image-info">
+                                <span id="fileName"></span>
+                                <span id="fileSize"></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="results-section" id="resultsSection" style="display: none;">
+                    <div class="results-card">
+                        <div class="results-header">
+                            <h3>Classification Results</h3>
+                            <div class="confidence-badge" id="confidenceBadge">
+                                <span id="confidenceValue">0%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="prediction-result">
+                            <div class="predicted-class">
+                                <i class="fas fa-microchip class-icon"></i>
+                                <div class="class-info">
+                                    <h4 id="predictedClassName">Component Name</h4>
+                                    <p id="predictedClassDescription">Electrical Component</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Top Predictions -->
+                        <div class="top-predictions" id="topPredictions">
+                            <h4>Top Predictions</h4>
+                            <div class="predictions-list" id="predictionsList">
+                                <!-- Predictions will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="results-actions">
+                            <button class="btn btn-primary" id="classifyAnotherBtn">
+                                <i class="fas fa-plus"></i>
+                                Classify Another
+                            </button>
+                            <button class="btn btn-secondary" id="downloadResultsBtn">
+                                <i class="fas fa-download"></i>
+                                Download Results
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Error Section -->
+                <section class="error-section" id="errorSection" style="display: none;">
+                    <div class="error-card">
+                        <div class="error-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="error-content">
+                            <h3>Classification Error</h3>
+                            <p id="errorMessage">An error occurred during classification.</p>
+                            <button class="btn btn-primary" id="retryBtn">
+                                <i class="fas fa-redo"></i>
+                                Try Again
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Electrical Component Classifier</p>
+                    <p>Powered by Deep Learning & Computer Vision</p>
+                    <p class="credit">Designed & Developed by <strong>Eng. Aymen Al-Tinah</strong></p>
+                </div>
+                <div class="footer-links">
+                    <a href="/documentation" class="footer-link">Documentation</a>
+                    <a href="/about" class="footer-link">About Designer</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3>Analyzing Component...</h3>
+            <p>Our AI is processing your image</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

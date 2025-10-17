@@ -9,7 +9,7 @@ A professional-grade web application for AI-powered electrical component classif
 
 ## 🎬 Demo Video
 
-![Demo Video](Demo%20video%20for%20elec_comp_classifier.mp4)
+https://github.com/user-attachments/assets/ebd770bf-5484-4164-9005-42e60922dbfc
 
 ## 🚀 Features
 

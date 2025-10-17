@@ -7,6 +7,12 @@ A professional-grade web application for AI-powered electrical component classif
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.1+-red.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+## 🎬 Demo Video
+
+https://github.com/user-attachments/assets/Demo%20video%20for%20elec_comp_classifier.mp4
+
+> **Note:** Click the video above to watch the full demonstration of the Electrical Component Classifier in action!
+
 ## 🚀 Features
 
 - **AI-Powered Classification**: 18 different electrical component types
@@ -364,13 +370,6 @@ isort backend/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- **Dataset**: ElectroCom61 dataset for electrical component images
-- **Model**: ResNet50 pre-trained on ImageNet
-- **Framework**: Flask for web application
-- **Frontend**: Modern CSS3 and JavaScript
-- **Icons**: Font Awesome for UI icons
 
 ## 📞 Support
 
@@ -382,7 +381,7 @@ For support, questions, or feature requests:
 
 ## 🔄 Changelog
 
-### Version 1.0.0 (2025-01-12)
+### Version 1.0.0 (2025-10-17)
 - Initial release
 - 18 electrical component classes
 - Professional web interface
